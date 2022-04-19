@@ -1,10 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
+const colors = require("colors");
 
 const userRoutes = require("./routes/userRoutes");
 const { errorHandler } = require("./middleware/errorMiddleware");
-
+const connectDB = require("./config/db");
 const PORT = process.env.PORT || 5000;
+
+// connect to databse
+connectDB();
 
 const app = express();
 app.use(express.json());
